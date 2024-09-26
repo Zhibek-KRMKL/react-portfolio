@@ -1,10 +1,16 @@
-// import React from "react";
+import React from "react";
+import ProjectList from "./Components/ProjectList";
+import AddProjectList from "./Components/AddProjectForm";
+import Settings from "./Components/Settings";
 
 function App() {
   return (
-    <>
-<h1>Im back bitch!</h1>
-    </>
+    <div>
+      <h1>Personal Project Manager</h1>
+      <AddProjectList />
+      <ProjectList />
+      <Settings />
+    </div>
   );
 }
 
