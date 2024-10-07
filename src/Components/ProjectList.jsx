@@ -1,24 +1,28 @@
 import PropTypes from 'prop-types';
 import ProjectCard from './ProjectCard';
 
-const ProjectList = ({ projects }) => {
+const ProjectList = ({ projectList, onDelete }) => {
     return (
         <div>
-            {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+            {projectList.map((project) => (
+                <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    onDelete={onDelete} // Передаем функцию удаления
+                />
             ))}
         </div>
     );
 };
 
-// Валидация пропсов
 ProjectList.propTypes = {
-    projects: PropTypes.arrayOf(
+    projectList: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
             id: PropTypes.number.isRequired,
         })
     ).isRequired,
+    onDelete: PropTypes.func.isRequired, // Валидация onDelete
 };
 
 export default ProjectList;
