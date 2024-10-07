@@ -4,17 +4,17 @@ import AddProjectForm from "./Components/AddProjectForm";
 import Settings from "./Components/Settings";
 
 const App = () => {
-    const [projects, setProjects] = useState([]);
+    const [projectList, setProjectList] = useState([]);
 
     const addProject = (newProject) => {
-        setProjects((prevProjects) => [...prevProjects, newProject]);
+        setProjectList((prevProjects) => [...prevProjects, newProject]);
     };
 
     return (
         <div>
             <h1>Personal Project Manager</h1>
             <AddProjectForm onAddProject={addProject}/>
-            <ProjectList projects={projects}/>
+            <ProjectList projectList={projectList}/>
             <Settings/>
         </div>
     );

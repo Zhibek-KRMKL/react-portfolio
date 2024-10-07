@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const AddProjectForm = ({ onAddProject }) => {
   const [projectName, setProjectName] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (projectName) {
