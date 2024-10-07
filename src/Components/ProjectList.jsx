@@ -1,18 +1,19 @@
-import ProjectCard from './ProjectCard';
 import PropTypes from 'prop-types';
+import ProjectCard from './ProjectCard';
 
-const ProjectList = ({ projectList }) => {
-  return (
-    <div>
-        {projectList.map((project) => {
-            <ProjectCard key={project.id} project={project} />
-        })}
-    </div>
-  );
+const ProjectList = ({ projects }) => {
+    return (
+        <div>
+            {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+            ))}
+        </div>
+    );
 };
 
+// Валидация пропсов
 ProjectList.propTypes = {
-    projectList: PropTypes.arrayOf(
+    projects: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
             id: PropTypes.number.isRequired,
@@ -20,4 +21,4 @@ ProjectList.propTypes = {
     ).isRequired,
 };
 
-export default ProjectList
+export default ProjectList;
