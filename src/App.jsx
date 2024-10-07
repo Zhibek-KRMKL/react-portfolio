@@ -30,6 +30,15 @@ const App = () => {
         setProjectList((prevProjectList) => [...prevProjectList, newProject]);
     };
 
+    const updateProject = (projectId, updatedName) => {
+        setProjectList((prevProjectList) =>
+            prevProjectList.map((project) =>
+                project.id === projectId ? { ...project, name: updatedName } : project
+            )
+        );
+    };
+    
+
     const deleteProject = (projectId) => {
         setProjectList((prevProjectList) =>
             prevProjectList.filter((project) => project.id !== projectId)
@@ -40,7 +49,10 @@ const App = () => {
         <div>
             <h1>Personal Project Manager</h1>
             <AddProjectForm onAddProject={addProject} />
-            <ProjectList projectList={projectList} onDelete={deleteProject} />
+            <ProjectList 
+            projectList={projectList} 
+            onUpdate={updateProject}
+            onDelete={deleteProject} />
             <Settings />
         </div>
     );
